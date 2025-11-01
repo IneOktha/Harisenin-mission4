@@ -29,12 +29,11 @@ function updateDateTime() {
     const timeElement = document.getElementById('currentTime');
 
     if (dateElement) {
-        dateElement.textContent = now.toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
+        const day = now.toLocaleDateString('en-US', { weekday: 'long' });
+        const date = now.getDate();
+        const month = now.toLocaleDateString('en-US', { month: 'long' });
+        const year = now.getFullYear();
+        dateElement.textContent = `${day}, ${date} ${month} ${year}`;
     }
 
     if (timeElement) {
